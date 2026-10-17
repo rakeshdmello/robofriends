@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RoboFriends
 
-## Available Scripts
+A small React app that loads a list of users and shows each one as a robot card, with a search box to filter them by name.
 
-In the project directory, you can run:
+Live site: https://rakeshdmello.github.io/robofriends/
 
-### `npm start`
+Robot pictures come from [RoboHash](https://robohash.org) and the user list from [JSONPlaceholder](https://jsonplaceholder.typicode.com).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requirements
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [Node.js](https://nodejs.org) 22.13 or later (or 24+). If you use nvm, run `nvm use` (the version is in `.nvmrc`).
 
-### `npm test`
+## Getting started
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+npm start
+```
 
-### `npm run build`
+This opens the app at http://localhost:3000/robofriends/. The page reloads automatically when you edit files in `src/`.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Available scripts
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+| Command | What it does |
+|---------|--------------|
+| `npm start` (or `npm run dev`) | Runs the app in development mode with live reload |
+| `npm test` | Runs the tests once |
+| `npm run test:watch` | Runs the tests and re-runs them when files change |
+| `npm run build` | Builds the production site into the `dist/` folder |
+| `npm run preview` | Serves the built `dist/` folder locally, to check it before deploying |
+| `npm run deploy` | Builds the site and publishes `dist/` to GitHub Pages (the `gh-pages` branch) |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project structure
 
-### `npm run eject`
+```
+index.html                 Page template (Vite entry point)
+vite.config.js             Build, dev-server and test settings
+public/                    Static files copied as-is (icons, manifest)
+src/
+  main.jsx                 Starts the React app
+  containers/RoboApp.jsx   Loads the robots, handles search, loading and errors
+  components/              Card, CardList, SearchBox, Scroll, ErrorBoundary
+  robots.js                Sample robot data (used by the tests)
+  *.test.jsx               Tests (Vitest + React Testing Library)
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Built with
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React](https://react.dev) 19
+- [Vite](https://vite.dev) for development and builds, and [Vitest](https://vitest.dev) for tests
+- [Tachyons](https://tachyons.io) for styling
+- [gh-pages](https://github.com/tschaub/gh-pages) for deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> This project was originally created with Create React App, which is no longer maintained. It was moved to Vite so it builds on current versions of Node.js.
